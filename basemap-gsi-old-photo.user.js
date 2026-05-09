@@ -2,7 +2,7 @@
 // @id             iitc-plugin-basemap-gsioldphoto
 // @name           IITC plugin: GSI map tiles Old Aerial Photos
 // @category       Map Tiles
-// @version        0.0.5
+// @version        0.0.6
 // @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion
 // @updateURL      https://github.com/mklyr/gsi-cyber-japan-old/raw/main/basemap-gsi-old-photo.user.js
 // @downloadURL    https://github.com/mklyr/gsi-cyber-japan-old/raw/main/basemap-gsi-old-photo.user.js
@@ -16,7 +16,7 @@ function wrapper(plugin_info) {
   if(typeof window.plugin !== 'function') window.plugin = function() {};
 
   plugin_info.buildName = 'gsi-cyber-japan-oldphoto';
-  plugin_info.dateTimeVersion = '20260508000000';
+  plugin_info.dateTimeVersion = '20260509000000';
   plugin_info.pluginId = 'gsi-cyber-japan-oldphoto';
 
   var mapTileGsiOldOrt = {};
@@ -26,7 +26,7 @@ function wrapper(plugin_info) {
     attribution: 'Map Data &copy; <a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank" rel="noopener noreferrer">国土地理院</a>',
     maxNativeZoom: 17,
     maxZoom: 21,
-    zIndex: 0
+    zIndex: 1
   };
 
   mapTileGsiOldOrt.LAYERS = [
@@ -41,6 +41,13 @@ function wrapper(plugin_info) {
   function setup() {
     for (var entry of mapTileGsiOldOrt.LAYERS) {
       var layer = new L.TileLayer(entry.url, entry.options);
+      
+      layer.on('add', function() {
+        if (this.bringToBack) {
+          this.bringToBack();
+        }
+      });
+
       window.layerChooser.addBaseLayer(layer, entry.name);
     }
   }
