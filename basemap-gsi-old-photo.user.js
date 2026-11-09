@@ -4,8 +4,8 @@
 // @category       Map Tiles
 // @version        0.0.6
 // @namespace      https://github.com/IITC-CE/ingress-intel-total-conversion
-// @updateURL      https://github.com/mklyr/gsi-cyber-japan-old/raw/main/basemap-gsi-old-photo.user.js
-// @downloadURL    https://github.com/mklyr/gsi-cyber-japan-old/raw/main/basemap-gsi-old-photo.user.js
+// @updateURL      https://github.com/secka-penguin/gsi-cyber-japan-old/raw/main/basemap-gsi-old-photo.user.js
+// @downloadURL    https://github.com/secka-penguin/gsi-cyber-japan-old/raw/main/basemap-gsi-old-photo.user.js
 // @description    IITCに国土地理院の過去の航空写真レイヤーを追加します
 // @match          https://intel.ingress.com/*
 // @match          https://intel-x.ingress.com/*
